@@ -7,13 +7,14 @@ import (
 	"sync"
 )
 
-const(
-	Credit = "CreditCard"
-	Debit= "DebitCard"
-	Visa = "Visa"
+const (
+	Credit     = "CreditCard"
+	Debit      = "DebitCard"
+	Visa       = "Visa"
 	MasterCard = "Master"
-	Elo = "Elo"
+	Elo        = "Elo"
 )
+
 type (
 	Environment struct {
 		APIUrl, APIQueryURL string
@@ -144,23 +145,33 @@ type (
 	}
 
 	ZeroAuthCard struct {
-		CardType 		string           `json:",omitempty"`
-		CardNumber      string           `json:",omitempty"`
-		Holder          string           `json:",omitempty"`
-		ExpirationDate  string           `json:",omitempty"`
-		SecurityCode    string           `json:",omitempty"`
-		SaveCard        bool             `json:",omitempty"`
-		Brand           string           `json:",omitempty"`
-		CardToken       string           `json:",omitempty"`
-		Usage           string           `json:",omitempty"`
-		Reason          string           `json:",omitempty"`
+		CardType       string `json:",omitempty"`
+		CardNumber     string `json:",omitempty"`
+		Holder         string `json:",omitempty"`
+		ExpirationDate string `json:",omitempty"`
+		SecurityCode   string `json:",omitempty"`
+		SaveCard       bool   `json:",omitempty"`
+		Brand          string `json:",omitempty"`
+		CardToken      string `json:",omitempty"`
+		Usage          string `json:",omitempty"`
+		Reason         string `json:",omitempty"`
 	}
 
 	ZeroAuthResponse struct {
-		Valid  				bool   `json:",omitempty"`
-		ReturnCode 			string `json:",omitempty"`
-		ReturnMessage 		string `json:",omitempty"`
+		Valid               bool   `json:",omitempty"`
+		ReturnCode          string `json:",omitempty"`
+		ReturnMessage       string `json:",omitempty"`
 		IssuerTransactionId string `json:",omitempty"`
+	}
+
+	BINResponse struct {
+		Status        string `json:"Status"`
+		Provider      string `json:"Provider"`
+		CardType      string `json:"CardType"`
+		ForeignCard   bool   `json:"ForeignCard"`
+		CorporateCard bool   `json:"CorporateCard"`
+		Issuer        string `json:"Issuer"`
+		IssuerCode    string `json:"IssuerCode"`
 	}
 )
 

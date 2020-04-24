@@ -7,16 +7,16 @@ import (
 )
 
 func TestZeroAuth(t *testing.T){
-	c,err := cielo.NewClient(os.Getenv("CIELO_MERCHANT_ID"),os.Getenv("CIELO_MERCHANT_KEY"), cielo.SandboxEnvironment)
+	c,err := cielo.NewClient(os.Getenv("CIELO_MERCHANT_ID"),os.Getenv("CIELO_MERCHANT_KEY"), cielo.ProductionEnvironment)
 	if err!= nil{
 		println(err.Error())
 	}
 	response := &cielo.ZeroAuthResponse{}
 	card := cielo.ZeroAuthCard{
 		CardType:       cielo.Credit,
-		CardNumber:     "111111111111111",
+		CardNumber:     "1234123412341234",
 		Holder:         "TEST HOLDER",
-		ExpirationDate: "11/2026",
+		ExpirationDate: "12/2026",
 		SecurityCode:   "123",
 		Brand:          cielo.MasterCard,
 	}
