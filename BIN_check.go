@@ -6,8 +6,8 @@ import (
  "gopkg.in/go-playground/validator.v9"
 )
 
-//CreateTokenizeCard returns some card information
-//Endpoint GET /1/card/{TOKEN}
+//GetBinValidation returns card BIN information
+//Endpoint GET /1/cardBin/{BIN}
 func (c *Client) GetBinValidation(cardBin string) (*BINResponse, error) {
 	buf := bytes.NewBuffer([]byte(""))
 	validator.New().Var(cardBin,"len=6")

@@ -46,7 +46,6 @@ func TestGetTokenized(t *testing.T){
 	_,err =c.CreateTokenizeCard(&cc)
 
 
-	//t := http.NewRequest("GET", "www.google.com","")
 	if err!=nil{
 		t.Error(err.Error())
 	}
