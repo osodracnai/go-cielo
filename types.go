@@ -63,42 +63,49 @@ type (
 	}
 
 	Payment struct {
-		ServiceTaxAmount    uint32            `json:",omitempty"`
-		Installments        uint32            `json:",omitempty"`
-		Interest            interface{}       `json:",omitempty"`
-		Capture             bool              `json:",omitempty"`
-		Authenticate        bool              `json:",omitempty"`
-		Recurrent           bool              `json:",omitempty"`
-		RecurrentPayment    *RecurrentPayment `json:",omitempty"`
-		CreditCard          *CreditCard       `json:",omitempty"`
-		DebitCard           *DebitCard        `json:",omitempty"`
-		Tid                 string            `json:",omitempty"`
-		ProofOfSale         string            `json:",omitempty"`
-		AuthorizationCode   string            `json:",omitempty"`
-		SoftDescriptor      string            `json:",omitempty"`
-		ReturnURL           string            `json:",omitempty"`
-		Provider            string            `json:",omitempty"`
-		PaymentID           string            `json:",omitempty"`
-		Type                string            `json:",omitempty"`
-		Amount              uint32            `json:",omitempty"`
-		ReceiveDate         string            `json:",omitempty"`
-		CapturedAmount      uint32            `json:",omitempty"`
-		CapturedDate        string            `json:",omitempty"`
-		Currency            string            `json:",omitempty"`
-		Country             string            `json:",omitempty"`
-		ReturnCode          string            `json:",omitempty"`
-		ReturnMessage       string            `json:",omitempty"`
-		Status              uint32            `json:",omitempty"`
-		Links               []*Links          `json:",omitempty"`
-		ExtraDataCollection []interface{}     `json:",omitempty"`
-		ExpirationDate      string            `json:",omitempty"`
-		URL                 string            `json:",omitempty"`
-		Number              string            `json:",omitempty"`
-		BarCodeNumber       string            `json:",omitempty"`
-		DigitableLine       string            `json:",omitempty"`
-		Address             string            `json:",omitempty"`
+		ServiceTaxAmount       uint32                  `json:",omitempty"`
+		Installments           uint32                  `json:",omitempty"`
+		Interest               interface{}             `json:",omitempty"`
+		Capture                bool                    `json:",omitempty"`
+		Authenticate           bool                    `json:",omitempty"`
+		Recurrent              bool                    `json:",omitempty"`
+		RecurrentPayment       *RecurrentPayment       `json:",omitempty"`
+		CreditCard             *CreditCard             `json:",omitempty"`
+		DebitCard              *DebitCard              `json:",omitempty"`
+		Tid                    string                  `json:",omitempty"`
+		ProofOfSale            string                  `json:",omitempty"`
+		AuthorizationCode      string                  `json:",omitempty"`
+		SoftDescriptor         string                  `json:",omitempty"`
+		ReturnURL              string                  `json:",omitempty"`
+		Provider               string                  `json:",omitempty"`
+		PaymentID              string                  `json:",omitempty"`
+		Type                   string                  `json:",omitempty"`
+		Amount                 uint32                  `json:",omitempty"`
+		ReceiveDate            string                  `json:",omitempty"`
+		CapturedAmount         uint32                  `json:",omitempty"`
+		CapturedDate           string                  `json:",omitempty"`
+		Currency               string                  `json:",omitempty"`
+		Country                string                  `json:",omitempty"`
+		ReturnCode             string                  `json:",omitempty"`
+		ReturnMessage          string                  `json:",omitempty"`
+		Status                 uint32                  `json:",omitempty"`
+		Links                  []*Links                `json:",omitempty"`
+		ExtraDataCollection    []interface{}           `json:",omitempty"`
+		ExpirationDate         string                  `json:",omitempty"`
+		URL                    string                  `json:",omitempty"`
+		Number                 string                  `json:",omitempty"`
+		BarCodeNumber          string                  `json:",omitempty"`
+		DigitableLine          string                  `json:",omitempty"`
+		Address                string                  `json:",omitempty"`
+		ExternalAuthentication *ExternalAuthentication `json:",omitempty"`
 	}
-
+	ExternalAuthentication struct {
+		Cavv        string `json:",omitempty"`
+		Xid         string `json:",omitempty"`
+		Eci         string `json:",omitempty"`
+		Version     string `json:",omitempty"`
+		ReferenceId string `json:",omitempty"`
+	}
 	Links struct {
 		Method string `json:",omitempty"`
 		Rel    string `json:",omitempty"`
@@ -165,13 +172,22 @@ type (
 	}
 
 	BINResponse struct {
-		Status        string `json:"Status"`
-		Provider      string `json:"Provider"`
-		CardType      string `json:"CardType"`
-		ForeignCard   bool   `json:"ForeignCard"`
-		CorporateCard bool   `json:"CorporateCard"`
-		Issuer        string `json:"Issuer"`
-		IssuerCode    string `json:"IssuerCode"`
+		Status        string `json:",omitempty"`
+		Provider      string `json:",omitempty"`
+		CardType      string `json:",omitempty"`
+		ForeignCard   bool   `json:",omitempty"`
+		CorporateCard bool   `json:",omitempty"`
+		Issuer        string `json:",omitempty"`
+		IssuerCode    string `json:",omitempty"`
+	}
+	UndoSaleResponse struct {
+		Status            int      `json:",omitempty"`
+		Tid               string   `json:",omitempty"`
+		ProofOfSale       string   `json:",omitempty"`
+		AuthorizationCode string   `json:",omitempty"`
+		ReturnCode        string   `json:",omitempty"`
+		ReturnMessage     string   `json:",omitempty"`
+		Links             []*Links `json:",omitempty"`
 	}
 )
 
